@@ -1,12 +1,12 @@
-var buttonColors = ["red", "blue", "green", "yellow"];
+var buttonColors = ["red", "blue", "green", "yellow", "orange", "purple"];
 
 var gamePattern = [];
 var userClickedPattern = [];
 
 var started = false;
 var level = 0;
-var gameOverDeaths = ['Five nails through the neck', 'Impaled', 'Gutted'];
-var gameOverPattern = [];
+
+
 $(document).keydown(function() { 
     if(!started) {
     $('#level-title').text('Level ' + level);
@@ -41,7 +41,7 @@ $('.btn').click(function()    {
             setTimeout(function() {
                 $('body').removeClass("game-over");
             }, 2000);
-            $('#level-title').text( gameOverDeaths[Math.floor(Math.random()*gameOverDeaths.length)]);
+            $('#level-title').text("game over");
             startOver();
         }
      
@@ -53,13 +53,32 @@ $('.btn').click(function()    {
             level++;
            $('#level-title').text('Level ' + level);
            
-            var randomNumber = Math.floor(Math.random()*4);
+            var randomNumber = Math.floor(Math.random()*6);
             var randomChosenColor = buttonColors[randomNumber];
             gamePattern.push(randomChosenColor);
-            $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
+            $("#" + randomChosenColor).fadeIn(200).fadeOut(200).fadeIn(200);
             playSound(randomChosenColor);
             animatePressed(randomChosenColor);
             $('#level-title').text('Level ' + level);
+            
+
+            if(level === 4) {
+                setTimeout( () => {
+                 $(".orange").css({"transform": "translateY(-275px)"})
+                 $(".yellow").css({"transform": "translateY(275px)"})
+                $(".red").css({"transform": "translateX(-275px)"})
+                $(".green").css({"transform": "translateX(275px)"})
+                }, 200)
+                
+            } else if(level === 6) {
+                setTimeout( () => {
+                 $(".orange").css({"transform": "translateY(-275px)"})
+                 $(".yellow").css({"transform": "translateY(275px)"})
+                $(".red").css({"transform": "translateX(-275px)"})
+                $(".green").css({"transform": "translateX(275px)"})
+                }, 200)
+                
+            }
             checkAnswer();
         }; 
             
