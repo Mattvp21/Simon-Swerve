@@ -68,7 +68,7 @@ $('.btn').click(function()    {
                 document.getElementsByClassName("purple")[0].style.visibility = "visible"
            
             }
-
+            console.log(gamePattern)
             
             
             
