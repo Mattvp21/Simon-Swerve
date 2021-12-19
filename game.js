@@ -35,13 +35,13 @@ $('.btn').click(function()    {
         }
 
         } else {
-            var gameOverAudio = new Audio('sounds/wrong.mp3');
-            gameOverAudio.play();
+            playSound("wrong")
             $('body').addClass("game-over");
+            $('#level-title').text("game over");
             setTimeout(function() {
                 $('body').removeClass("game-over");
             }, 2000);
-            $('#level-title').text("game over");
+           
             startOver();
         }
      
@@ -59,7 +59,7 @@ $('.btn').click(function()    {
             $("#" + randomChosenColor).fadeIn(200).fadeOut(200).fadeIn(200);
             playSound(randomChosenColor);
             animatePressed(randomChosenColor);
-            $('#level-title').text('Level ' + level);
+           
 
             if(level === 4) {
                 buttonColors.push("orange");
@@ -69,9 +69,9 @@ $('.btn').click(function()    {
            
             }
 
-            gfsv 
-            console.log(userClickedPattern)
-            checkAnswer();
+            
+            
+            
         }; 
             
         function playSound(name)    {
