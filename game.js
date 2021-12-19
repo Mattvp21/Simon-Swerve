@@ -7,7 +7,7 @@ var started = false;
 var level = 0;
 
 
-$(document).keydown(function() { 
+$(document).keypress(function() { 
     if(!started) {
     $('#level-title').text('Level ' + level);
     nextSequence();
@@ -27,7 +27,7 @@ $('.btn').click(function()    {
 
        function checkAnswer(currentLevel)  {
         if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-            console.log(userClickedPattern); 
+           
          if (userClickedPattern.length === gamePattern.length) {
             setTimeout(function() {
                 nextSequence();
