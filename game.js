@@ -1,4 +1,4 @@
-var buttonColors = ["red", "blue", "green", "yellow", "orange", "purple"];
+var buttonColors = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
 var userClickedPattern = [];
@@ -27,7 +27,7 @@ $('.btn').click(function()    {
 
        function checkAnswer(currentLevel)  {
         if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-            console.log("success"); 
+            console.log(userClickedPattern); 
          if (userClickedPattern.length === gamePattern.length) {
             setTimeout(function() {
                 nextSequence();
@@ -53,32 +53,24 @@ $('.btn').click(function()    {
             level++;
            $('#level-title').text('Level ' + level);
            
-            var randomNumber = Math.floor(Math.random()*6);
+            var randomNumber = Math.floor(Math.random()* buttonColors.length);
             var randomChosenColor = buttonColors[randomNumber];
             gamePattern.push(randomChosenColor);
             $("#" + randomChosenColor).fadeIn(200).fadeOut(200).fadeIn(200);
             playSound(randomChosenColor);
             animatePressed(randomChosenColor);
             $('#level-title').text('Level ' + level);
-            
 
             if(level === 4) {
-                setTimeout( () => {
-                 $(".orange").css({"transform": "translateY(-275px)"})
-                 $(".yellow").css({"transform": "translateY(275px)"})
-                $(".red").css({"transform": "translateX(-275px)"})
-                $(".green").css({"transform": "translateX(275px)"})
-                }, 200)
-                
-            } else if(level === 6) {
-                setTimeout( () => {
-                 $(".orange").css({"transform": "translateY(-275px)"})
-                 $(".yellow").css({"transform": "translateY(275px)"})
-                $(".red").css({"transform": "translateX(-275px)"})
-                $(".green").css({"transform": "translateX(275px)"})
-                }, 200)
-                
+                buttonColors.push("orange");
+                document.getElementsByClassName("orange")[0].style.visibility = "visible"
+                buttonColors.push("purple");
+                document.getElementsByClassName("purple")[0].style.visibility = "visible"
+           
             }
+
+            gfsv 
+            console.log(userClickedPattern)
             checkAnswer();
         }; 
             
@@ -104,6 +96,10 @@ $('.btn').click(function()    {
                 level = 0;
                 gamePattern = [];
                 started =false;
+                buttonColors = ["red", "blue", "green", "yellow"];
+                document.getElementsByClassName("purple")[0].style.visibility = "hidden"
+                document.getElementsByClassName("orange")[0].style.visibility = "hidden"
+                
            }
 
           
