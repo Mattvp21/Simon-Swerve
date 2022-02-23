@@ -1,4 +1,4 @@
-# Simon Swerve
+# Simon 
 
 2 new colors appear after level 4. 
 
